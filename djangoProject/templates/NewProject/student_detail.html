@@ -1,0 +1,16 @@
+{% extends 'NewProject/base.html' %}
+
+{% block body %}
+        {% if student %}
+        <div class="img-circle">
+            <img src="{{ student.Image.url }}">
+        </div>
+        <h2>Student Id is : {{ student.id }}</h2>
+        <h2>Student Name is : {{ student.FirstName }} {{ student.LastName }}</h2>
+        <h2>Student Subject is : {{ student.Subject }}</h2>
+        <h2>Student Marks are : {{ student.Marks }}</h2>
+    {% else %}
+        <h2>{{ error }}</h2>
+    {% endif %}
+    <a href="{% url 'students' %}" class="btn btn-success">Goto Back</a>
+{% endblock %}

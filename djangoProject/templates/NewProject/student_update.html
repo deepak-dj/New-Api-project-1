@@ -1,0 +1,38 @@
+{%  extends 'NewProject/base.html' %}
+
+{% block body %}
+ {% if student %}
+      <form method="POST">
+         {% csrf_token %}
+       <table>
+          <tr>
+              <th>Id :</th>
+              <td><input type="number" value="{{ student.id }}" name="id" readonly></td>
+          </tr>
+          <tr>
+              <th>Sno :</th>
+              <td><input type="number" value="{{ student.FirstName }}" name="sno"></td>
+          </tr>
+          <tr>
+              <th>Sname :</th>
+              <td><input type="text" value="{{ student.LastName }}" name="sname"></td>
+          </tr>
+            <tr>
+              <th>Marks :</th>
+              <td><input type="number" value="{{ student.Subject }}" name="marks"></td>
+          </tr>
+         <tr>
+              <th>Marks :</th>
+              <td><input type="number" value="{{ student.Marks }}" name="marks"></td>
+          </tr>
+           <tr>
+               <th></th>
+               <td><input type="submit" value="Update"></td>
+           </tr>
+
+       </table>
+     </form>
+    {% else %}
+       <h1>{{ error }}</h1>
+    {% endif %}
+{% endblock %}

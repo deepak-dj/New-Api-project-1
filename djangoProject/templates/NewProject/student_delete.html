@@ -1,0 +1,19 @@
+{% extends 'NewProject/base.html' %}
+{% block body %}
+
+    <div class="container">
+        {% if success %}
+            <h1>{{ success }}</h1>
+        {% elif student %}
+            <h1>Are you sure you want to delete this {{ student }} record.</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Delete" class="btn btn-danger">
+                <a href="{% url 'students' %}" class="btn btn-success">Cancel</a>
+            </form>
+        {% else %}
+            <h1>{{ error }}</h1>
+        {% endif %}
+    </div>
+
+{% endblock %}
